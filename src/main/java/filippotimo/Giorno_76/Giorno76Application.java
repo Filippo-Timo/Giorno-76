@@ -6,8 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Giorno76Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Giorno76Application.class, args);
-	}
+    public static void main(String[] args) {
+
+        SpringApplication.run(Giorno76Application.class, args);
+
+    }
 
 }
