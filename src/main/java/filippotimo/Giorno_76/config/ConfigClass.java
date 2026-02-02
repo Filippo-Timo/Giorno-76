@@ -26,6 +26,8 @@ public class ConfigClass {
             List.of(getTomato(), getCheese(), getSalami())
     );
 
+    //    ----------------------------------- Ingredienti -----------------------------------
+
     @Bean
     public Topping getTomato() {
         return new Topping("tomato", 50, 0.50);
@@ -45,8 +47,6 @@ public class ConfigClass {
     public Topping getOnions() {
         return new Topping("ham", 30, 0.50);
     }
-
-    //    ----------------------------------- Ingredienti -----------------------------------
 
     @Bean
     public Topping getPinapple() {
