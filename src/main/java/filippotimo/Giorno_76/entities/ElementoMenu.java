@@ -20,7 +20,7 @@ public class ElementoMenu {
     @Override
     public String toString() {
         return "ElementoMenu { " +
-                "name = " + name + '\'' +
+                "name = " + name +
                 ", calories = " + calories +
                 ", price = " + price +
                 '}';
