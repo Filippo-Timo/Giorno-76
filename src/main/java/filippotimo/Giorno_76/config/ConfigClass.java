@@ -7,24 +7,10 @@ import filippotimo.Giorno_76.entities.Topping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
 public class ConfigClass {
-
-    //    ----------------------------------- Liste ingredienti per pizza -----------------------------------
-
-    public List<Topping> getMargheritaIngredients = new ArrayList<>(
-            List.of(getTomato(), getCheese())
-    );
-
-    public List<Topping> getHawaiianIngredients = new ArrayList<>(
-            List.of(getTomato(), getCheese(), getPinapple())
-    );
-    public List<Topping> getSalamiIngredients = new ArrayList<>(
-            List.of(getTomato(), getCheese(), getSalami())
-    );
 
     //    ----------------------------------- Ingredienti -----------------------------------
 
@@ -62,17 +48,17 @@ public class ConfigClass {
 
     @Bean
     public Pizza getMargheritaPizza() {
-        return new Pizza("Margherita pizza", 1104, 4.99, getMargheritaIngredients);
+        return new Pizza("Margherita pizza", 1104, 4.99, List.of(getTomato(), getCheese()));
     }
 
     @Bean
     public Pizza getHawaiianPizza() {
-        return new Pizza("Hawaiian pizza", 1024, 6.49, getHawaiianIngredients);
+        return new Pizza("Hawaiian pizza", 1024, 6.49, List.of(getTomato(), getCheese(), getPinapple()));
     }
 
     @Bean
     public Pizza getSalamiPizza() {
-        return new Pizza("Salami pizza", 1160, 5.99, getSalamiIngredients);
+        return new Pizza("Salami pizza", 1160, 5.99, List.of(getTomato(), getCheese(), getSalami()));
     }
 
     //    ----------------------------------- Bevande -----------------------------------

@@ -21,7 +21,7 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "Menu{" +
+        return "Menu { " +
                 "pizzas = (" + pizzas +
                 "), toppings = (" + toppings +
                 "), drinks = (" + drinks +

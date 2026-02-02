@@ -3,7 +3,6 @@ package filippotimo.Giorno_76.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -14,7 +13,7 @@ public class Pizza extends ElementoMenu {
 
     public Pizza(String name, long calories, double price, List<Topping> toppings) {
         super(name, calories, price);
-        this.toppings = new ArrayList<>();
+        this.toppings = toppings;
     }
 
     @Override

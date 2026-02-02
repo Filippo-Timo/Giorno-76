@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ElementoMenu {
+public abstract class ElementoMenu {
 
     private String name;
     private long calories;
