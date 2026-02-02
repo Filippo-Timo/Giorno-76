@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public abstract class Menu {
+public class Menu {
 
     private List<Pizza> pizzas;
     private List<Topping> toppings;

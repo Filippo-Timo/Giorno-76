@@ -13,9 +13,11 @@ public class Topping extends ElementoMenu {
 
     @Override
     public String toString() {
-        return "Topping { " +
-                super.toString() +
-                '}';
+        return super.getName() +
+                " | " +
+                super.getCalories() +
+                " | " +
+                super.getPrice();
     }
 
 }

@@ -23,5 +23,5 @@ public class Drink extends ElementoMenu {
                 super.getPrice() +
                 '}';
     }
-    
+
 }
