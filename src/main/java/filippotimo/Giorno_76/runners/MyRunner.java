@@ -18,24 +18,31 @@ public class MyRunner implements CommandLineRunner {
 
         System.out.println("Ciao, siamo nel Runner");
 
-        System.out.println("Questo è il menù:");
+        System.out.println("----------------------- Menu -----------------------");
         Menu menu = ctx.getBean(Menu.class);
         System.out.println(menu);
 
+
         Table table = new Table(1, 10, StatoTavolo.occupato);
+
+
         ElementoMenu margherita = ctx.getBean("getMargheritaPizza", ElementoMenu.class);
         ElementoMenu diavola = ctx.getBean("getDiavolaPizza", ElementoMenu.class);
         ElementoMenu acqua = ctx.getBean("getWater", ElementoMenu.class);
 
+
         List<ElementoMenu> piattiOrdinati = new ArrayList<>(
                 List.of(margherita, diavola, acqua)
         );
-        
-        Order order = new Order(1, table, piattiOrdinati, StatoOrdine.pronto, 5, 1.50);
-        System.out.println("Order: " + order);
 
+        System.out.println("---------------------- Ordine ----------------------");
+        Order order = new Order(1, table, piattiOrdinati, StatoOrdine.pronto, 5);
+        System.out.println("Ordine: " + order);
+        System.out.println("---------------------- Totale ----------------------");
+        double totale = order.getTotaleProdottiMetodo(piattiOrdinati);
+        System.out.println("Totale ordine: " + totale + " €");
 
-        System.out.println("Questa è la fine del Runner");
+        System.out.println("Arrivederci dal Runner");
 
     }
 }

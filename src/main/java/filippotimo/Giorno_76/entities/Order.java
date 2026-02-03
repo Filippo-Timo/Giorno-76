@@ -22,18 +22,25 @@ public class Order {
 
     private LocalTime orario;
 
-    private double importoTotale;
 
-
-    public Order(int numeroOrdine, Table tavolo, List<ElementoMenu> piattiOrdinati, StatoOrdine statoOrdine, int numCoperti, double prezzoSingoloCoperto) {
+    public Order(int numeroOrdine, Table tavolo, List<ElementoMenu> piattiOrdinati, StatoOrdine statoOrdine, int numCoperti) {
         this.numeroOrdine = numeroOrdine;
         this.tavolo = tavolo;
         this.piattiOrdinati = piattiOrdinati;
         this.statoOrdine = statoOrdine;
         this.numCoperti = numCoperti;
         this.orario = LocalTime.now();
-        double totalePrezziPiatti = piattiOrdinati.stream().mapToDouble(ElementoMenu::getPrice).sum();
-        this.importoTotale = (numCoperti * prezzoSingoloCoperto) + totalePrezziPiatti;
+//        this.importoTotale = (numCoperti * 1.50) + getTotaleProdotti(piattiOrdinati);
+    }
+
+//    public double getTotaleProdotti(List<ElementoMenu> piattiOrdinati) {
+//        double totale = piattiOrdinati.stream().mapToDouble(ElementoMenu::getPrice).sum();
+//        return totale;
+//    }
+
+    public double getTotaleProdottiMetodo(List<ElementoMenu> piattiOrdinati) {
+        double totale = (numCoperti * 1.50) + piattiOrdinati.stream().mapToDouble(ElementoMenu::getPrice).sum();
+        return totale;
     }
 
     @Override
@@ -45,7 +52,6 @@ public class Order {
                 ", statoOrdine = " + statoOrdine +
                 ", numCoperti = " + numCoperti +
                 ", orario = " + orario +
-                ", importoTotale = " + importoTotale +
                 '}';
     }
 }

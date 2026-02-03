@@ -98,4 +98,5 @@ public class ConfigClass {
 //        return priceCoperto;
 //    }
 
+
 }
