@@ -35,12 +35,14 @@ public class MyRunner implements CommandLineRunner {
                 List.of(margherita, diavola, acqua)
         );
 
+        double coperto = ctx.getBean("getPrezzoSingoloCoperto", Double.class);
         System.out.println("---------------------- Ordine ----------------------");
         Order order = new Order(1, table, piattiOrdinati, StatoOrdine.pronto, 5);
         System.out.println("Ordine: " + order);
         System.out.println("---------------------- Totale ----------------------");
-        double totale = order.getTotaleProdottiMetodo(piattiOrdinati);
+        double totale = order.getTotaleProdottiMetodo(coperto);
         System.out.println("Totale ordine: " + totale + " €");
+        System.out.println(coperto);
 
         System.out.println("Arrivederci dal Runner");
 

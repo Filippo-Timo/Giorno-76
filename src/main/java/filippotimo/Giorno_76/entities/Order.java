@@ -38,8 +38,8 @@ public class Order {
 //        return totale;
 //    }
 
-    public double getTotaleProdottiMetodo(List<ElementoMenu> piattiOrdinati) {
-        double totale = (numCoperti * 1.50) + piattiOrdinati.stream().mapToDouble(ElementoMenu::getPrice).sum();
+    public double getTotaleProdottiMetodo(double costoCoperto) {
+        double totale = (numCoperti * costoCoperto) + piattiOrdinati.stream().mapToDouble(ElementoMenu::getPrice).sum();
         return totale;
     }
 

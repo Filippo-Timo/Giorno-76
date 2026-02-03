@@ -3,12 +3,15 @@ package filippotimo.Giorno_76.config;
 import filippotimo.Giorno_76.entities.Drink;
 import filippotimo.Giorno_76.entities.Pizza;
 import filippotimo.Giorno_76.entities.Topping;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.List;
 
 @Configuration
+@PropertySource("application.properties")
 public class ConfigClass {
 
     //    ----------------------------------- Ingredienti -----------------------------------
@@ -93,10 +96,10 @@ public class ConfigClass {
 //        );
 //    }
 
-//    @Bean
-//    public double getPrezzoSingoloCoperto(@Value("${price.coperto}") double priceCoperto) {
-//        return priceCoperto;
-//    }
+    @Bean
+    public double getPrezzoSingoloCoperto(@Value("${price.coperto}") double priceCoperto) {
+        return priceCoperto;
+    }
 
 
 }
