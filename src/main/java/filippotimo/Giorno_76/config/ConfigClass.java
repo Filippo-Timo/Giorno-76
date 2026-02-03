@@ -1,7 +1,6 @@
 package filippotimo.Giorno_76.config;
 
 import filippotimo.Giorno_76.entities.Drink;
-import filippotimo.Giorno_76.entities.Menu;
 import filippotimo.Giorno_76.entities.Pizza;
 import filippotimo.Giorno_76.entities.Topping;
 import org.springframework.context.annotation.Bean;
@@ -61,6 +60,11 @@ public class ConfigClass {
         return new Pizza("Salami pizza", 1160, 5.99, List.of(getTomato(), getCheese(), getSalami()));
     }
 
+    @Bean
+    public Pizza getDiavolaPizza() {
+        return new Pizza("Diavola pizza", 1230, 4.99, List.of(getTomato(), getCheese(), getSalami()));
+    }
+
     //    ----------------------------------- Bevande -----------------------------------
 
     @Bean
@@ -80,13 +84,18 @@ public class ConfigClass {
 
     //    ----------------------------------- Costruzione Menù -----------------------------------
 
-    @Bean
-    public Menu getMenu() {
-        return new Menu(
-                List.of(getMargheritaPizza(), getHawaiianPizza(), getSalamiPizza()),
-                List.of(getTomato(), getCheese(), getHam(), getOnions(), getPinapple(), getSalami()),
-                List.of(getWater(), getLemonade(), getWine())
-        );
-    }
+//    @Bean
+//    public Menu getMenu() {
+//        return new Menu(
+//                List.of(getMargheritaPizza(), getHawaiianPizza(), getSalamiPizza()),
+//                List.of(getTomato(), getCheese(), getHam(), getOnions(), getPinapple(), getSalami()),
+//                List.of(getWater(), getLemonade(), getWine())
+//        );
+//    }
+
+//    @Bean
+//    public double getPrezzoSingoloCoperto(@Value("${price.coperto}") double priceCoperto) {
+//        return priceCoperto;
+//    }
 
 }
