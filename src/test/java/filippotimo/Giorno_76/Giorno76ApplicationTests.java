@@ -1,13 +1,9 @@
 package filippotimo.Giorno_76;
 
-import filippotimo.Giorno_76.entities.ElementoMenu;
-import filippotimo.Giorno_76.entities.Pizza;
-import filippotimo.Giorno_76.entities.Topping;
+import filippotimo.Giorno_76.entities.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
@@ -19,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class Giorno76ApplicationTests {
 
     //    ---------------------------------- CREO GLI OGGETTI TOPPINGS ----------------------------------
-    
+
     Topping tomato = new Topping("tomato", 50, 0.50);
     Topping cheese = new Topping("cheese", 150, 0.50);
 
@@ -61,6 +57,7 @@ class Giorno76ApplicationTests {
 
     @Test
     void testObjNullOrNotNull() {
+        System.out.println("Test 1");
         assertNotNull(margherita);
         assertNotNull(diavola);
         assertNull(fakePizza);
@@ -70,6 +67,7 @@ class Giorno76ApplicationTests {
 
     @Test
     void testNotSamePizza() {
+        System.out.println("Test 2");
         assertNotSame(margherita, diavola);
     }
 
@@ -77,6 +75,7 @@ class Giorno76ApplicationTests {
 
     @Test
     void testNameIsMargherita() {
+        System.out.println("Test 3");
         assertEquals("Margherita pizza", margherita.getName());
         assertNotEquals("Margherita pizza", diavola.getName());
     }
@@ -85,6 +84,7 @@ class Giorno76ApplicationTests {
 
     @Test
     void testListSize() {
+        System.out.println("Test 4");
         assertNotEquals(0, piattiOrdinati.size());
         assertNotEquals(1, piattiOrdinati.size());
         assertEquals(2, piattiOrdinati.size());
@@ -93,11 +93,26 @@ class Giorno76ApplicationTests {
 
     //    ---------------------------------- TEST 5 (test di un metodo) ----------------------------------
 
+    /*
+
     @ParameterizedTest
     @CsvSource({"5, 1.5, 17.48"})
     void testGetTotaleProdotti(int numCoperti, double costoCoperto, double expectedResult) {
+        System.out.println("Test 5");
         double totale = (numCoperti * costoCoperto) + piattiOrdinati.stream().mapToDouble(ElementoMenu::getPrice).sum();
         assertEquals(expectedResult, totale);
+    }
+
+    */
+    
+
+    @Test
+    void testGetTotaleProdotti() {
+        System.out.println("Test 5");
+        Table table = new Table(1, 10, StatoTavolo.occupato);
+        Order order = new Order(1, table, piattiOrdinati, StatoOrdine.pronto, 5);
+        double totale = order.getTotaleProdotti(1.5);
+        assertEquals(17.48, totale);
     }
 
 }
