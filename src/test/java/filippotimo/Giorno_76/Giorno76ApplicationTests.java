@@ -19,10 +19,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class Giorno76ApplicationTests {
 
     //    ---------------------------------- CREO GLI OGGETTI TOPPINGS ----------------------------------
+    
     Topping tomato = new Topping("tomato", 50, 0.50);
     Topping cheese = new Topping("cheese", 150, 0.50);
 
     //    ---------------------------------- CREO L'OGGETTO MARGHERITA ----------------------------------
+
     List<Topping> toppingsMargerita = new ArrayList<>(
             List.of(tomato, cheese)
     );
@@ -30,11 +32,13 @@ class Giorno76ApplicationTests {
     Pizza margherita = new Pizza("Margherita pizza", 1104, 4.99, toppingsMargerita);
     Topping salami = new Topping("salami", 210, 0.99);
     //    ---------------------------------- CREO L'OGGETTO DIAVOLA ----------------------------------
+
     List<Topping> toppingsDiavola = new ArrayList<>(
             List.of(tomato, cheese, salami)
     );
     Pizza diavola = new Pizza("Diavola pizza", 1230, 4.99, toppingsDiavola);
     //    ---------------------------------- CREO LA LISTA ----------------------------------
+
     List<ElementoMenu> piattiOrdinati = new ArrayList<>(
             List.of(margherita, diavola)
     );
@@ -88,6 +92,7 @@ class Giorno76ApplicationTests {
     }
 
     //    ---------------------------------- TEST 5 (test di un metodo) ----------------------------------
+
     @ParameterizedTest
     @CsvSource({"5, 1.5, 17.48"})
     void testGetTotaleProdotti(int numCoperti, double costoCoperto, double expectedResult) {
