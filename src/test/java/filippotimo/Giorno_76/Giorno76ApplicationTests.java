@@ -21,11 +21,11 @@ class Giorno76ApplicationTests {
 
     //    ---------------------------------- CREO L'OGGETTO MARGHERITA ----------------------------------
 
-    List<Topping> toppingsMargerita = new ArrayList<>(
+    List<Topping> toppingsMargherita = new ArrayList<>(
             List.of(tomato, cheese)
     );
 
-    Pizza margherita = new Pizza("Margherita pizza", 1104, 4.99, toppingsMargerita);
+    Pizza margherita = new Pizza("Margherita pizza", 1104, 4.99, toppingsMargherita);
     Topping salami = new Topping("salami", 210, 0.99);
     //    ---------------------------------- CREO L'OGGETTO DIAVOLA ----------------------------------
 
@@ -104,7 +104,7 @@ class Giorno76ApplicationTests {
     }
 
     */
-    
+
 
     @Test
     void testGetTotaleProdotti() {
