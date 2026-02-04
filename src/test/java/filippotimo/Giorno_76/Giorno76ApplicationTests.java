@@ -5,6 +5,7 @@ import filippotimo.Giorno_76.entities.Pizza;
 import filippotimo.Giorno_76.entities.Topping;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class Giorno76ApplicationTests {
@@ -38,6 +39,8 @@ class Giorno76ApplicationTests {
             List.of(margherita, diavola)
     );
 
+    Pizza fakePizza = null;
+
     //    ---------------------------------- BEFOREALL / AFTERALL ----------------------------------
 
     @BeforeAll
@@ -50,15 +53,41 @@ class Giorno76ApplicationTests {
         System.out.println("Fine precedente Test");
     }
 
-    //    ---------------------------------- TEST METODO 1 ----------------------------------
+    //    ---------------------------------- TEST 1 ----------------------------------
 
-    //    ---------------------------------- TEST METODO 2 ----------------------------------
+    @Test
+    void testObjNullOrNotNull() {
+        assertNotNull(margherita);
+        assertNotNull(diavola);
+        assertNull(fakePizza);
+    }
 
-    //    ---------------------------------- TEST METODO 3 ----------------------------------
+    //    ---------------------------------- TEST 2 ----------------------------------
 
-    //    ---------------------------------- TEST METODO 4 ----------------------------------
+    @Test
+    void testNotSamePizza() {
+        assertNotSame(margherita, diavola);
+    }
 
-    //    ---------------------------------- TEST METODO 5 ----------------------------------
+    //    ---------------------------------- TEST 3 ----------------------------------
+
+    @Test
+    void testNameIsMargherita() {
+        assertEquals("Margherita pizza", margherita.getName());
+        assertNotEquals("Margherita pizza", diavola.getName());
+    }
+
+    //    ---------------------------------- TEST 4 ----------------------------------
+
+    @Test
+    void testListSize() {
+        assertNotEquals(0, piattiOrdinati.size());
+        assertNotEquals(1, piattiOrdinati.size());
+        assertEquals(2, piattiOrdinati.size());
+        assertNotEquals(3, piattiOrdinati.size());
+    }
+
+    //    ---------------------------------- TEST 5 (test di un metodo) ----------------------------------
     @ParameterizedTest
     @CsvSource({"5, 1.5, 17.48"})
     void testGetTotaleProdotti(int numCoperti, double costoCoperto, double expectedResult) {
