@@ -38,7 +38,7 @@ public class Order {
 //        return totale;
 //    }
 
-    public double getTotaleProdottiMetodo(double costoCoperto) {
+    public double getTotaleProdotti(double costoCoperto) {
         double totale = (numCoperti * costoCoperto) + piattiOrdinati.stream().mapToDouble(ElementoMenu::getPrice).sum();
         return totale;
     }

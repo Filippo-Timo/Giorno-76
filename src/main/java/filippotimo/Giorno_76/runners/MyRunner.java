@@ -42,7 +42,7 @@ public class MyRunner implements CommandLineRunner {
         System.out.println("------------- Prezzo singolo coperto --------------");
         System.out.println(coperto);
         System.out.println("---------------------- Totale ----------------------");
-        double totale = order.getTotaleProdottiMetodo(coperto);
+        double totale = order.getTotaleProdotti(coperto);
         System.out.println("Totale ordine: " + totale + " €");
 
 
